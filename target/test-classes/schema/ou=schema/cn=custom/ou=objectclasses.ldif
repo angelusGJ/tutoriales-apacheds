@@ -1,5 +1,0 @@
-version: 1
-dn: ou=objectClasses,cn=custom,ou=schema
-ou: objectclasses
-objectclass: organizationalUnit
-objectclass: top

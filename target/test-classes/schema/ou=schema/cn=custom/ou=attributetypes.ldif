@@ -1,5 +1,0 @@
-version: 1
-dn: ou=attributeTypes,cn=custom,ou=schema
-ou: attributetypes
-objectclass: organizationalUnit
-objectclass: top

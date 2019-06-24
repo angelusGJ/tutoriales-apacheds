@@ -298,9 +298,9 @@ Ahora si volvemos a ejecutar nuestro test de integración estará en verde.
 
 
 ## Referencias
+- https://www.adictosaltrabajo.com/2013/12/26/apache-d-s-embedded-ldap-server/
 - [https://github.com/angelusGJ/tutoriales-apacheds](https://github.com/angelusGJ/tutoriales-apacheds)
 
 ## Conclusiones
 
 Como habéis podido comprobar es muy sencillo con ApacheDS realizar test de integración de funcionalidades que acceden a un LDAP incluso si éste tiene esquema propios. 
-

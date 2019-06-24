@@ -1,0 +1,5 @@
+ldap:
+  url: "ldap://localhost:18888"
+  base: "o=autentia"
+  userDn: "cn=administrador,ou=users,o=autentia"
+  password: "pass"

@@ -1,0 +1,5 @@
+schema/ou=schema/cn=custom.ldif
+schema/ou=schema/cn=custom/ou=attributetypes.ldif
+schema/ou=schema/cn=custom/ou=objectclasses.ldif
+schema/ou=schema/cn=custom/ou=objectclasses/m-oid=1.3.6.1.4.1.42.2.27.32.1.ldif
+schema/ou=schema/cn=custom/ou=attributetypes/m-oid=1.3.6.1.4.1.42.2.27.32.1.1.ldif

@@ -1,0 +1,10 @@
+version: 1
+dn: cn=custom,ou=schema
+cn: custom
+m-disabled: FALSE
+objectclass: metaSchema
+objectclass: top
+m-dependencies: system
+m-dependencies: core
+m-dependencies: cosine
+m-dependencies: inetorgperson

@@ -2,7 +2,9 @@
 
 ## Introducción
 
-Hace tiempo nuestro compañero [Jose Manuel](https://www.adictosaltrabajo.com/author/jose-manuel-sanchez/) publicó un [tutorial](https://www.adictosaltrabajo.com/2013/12/26/apache-d-s-embedded-ldap-server/) sobre como realizar test de integración accediendo un LDAP utilizando el servidor embebido ApacheDS. En ese tutorial se hacía uso de esquemas estándar que incluye cualquier LDAP, como puede ser: **core.schema**, **inetorgperson.schema**, etc. Aunque lo normal es esto, puede ocurrir que nos encontremos en empresas que personalizan el LDAP añadiendo esquemas propios y por tanto debemos usarlos en nuestros test de integración.
+Hace tiempo nuestro compañero [Jose Manuel](https://www.adictosaltrabajo.com/author/jose-manuel-sanchez/) publicó un [tutorial](https://www.adictosaltrabajo.com/2013/12/26/apache-d-s-embedded-ldap-server/) sobre como realizar test de integración accediendo a un LDAP usando el servidor embebido ApacheDS. En ese tutorial se hacía uso de esquemas estándar que incluye cualquier LDAP, como son: **core.schema**, **inetorgperson.schema**, etc. 
+
+Aunque lo normal es utilizar esquemas estándar, puede ocurrir que nos encontremos empresas que personalizan el LDAP añadiendo esquemas propios.
 
 En este tutorial vamos un paso más y os enseñaremos a cargar esos esquemas propios y probar la funcionalidad que hayamos desarrollado.
 
@@ -19,9 +21,9 @@ El tutorial está escrito usando el siguiente entorno:
 
 ## Esquema propio
 
-En el tutorial de Jose Manuel se uso un LDAP tradicional creando un conjunto de usuarios con los tipos: **organizationalPerson**, **person** e **inetOrgPerson**. Apoyándonos en dicho ejemplo, imaginaros que después de un tiempo se necesita añadir un atributo nuevo (customAttribute) a los usuarios. Este atributo no existe en ninguno de los tipos estándar de LDAP y tenemos que crear nuestro propio esquema. Entonces hacemos nuestro desarrollo y queremos comprobar con un test de integración que todo funcióna correctamente. 
+En el tutorial de Jose Manuel se uso un LDAP tradicional creando un conjunto de usuarios con los tipos: **organizationalPerson**, **person** e **inetOrgPerson**. Apoyándonos en dicho ejemplo, imaginaros que después de un tiempo se necesita añadir un atributo nuevo (customAttribute) a los usuarios. Este atributo no existe en ninguno de los tipos estándar de LDAP y tenemos que crear uno propio. Entonces hacemos nuestro desarrollo y queremos comprobar con un test de integración que todo funcióna correctamente. 
 
-Lo primero que tenemos que hacer es definir el esquema propio, objectclass y attributetypes que lo van a componer. A continuación os enseñarmos cada uno de los ficheros.
+Lo primero que tenemos que hacer es definir el esquema son sus objectclass y attributetypes que lo van a componer. A continuación os enseñarmos cada uno de los ficheros.
 
 El primero es "**cn=custom.ldif**", donde definimos el nombre del nuestro esquema "custom" y las dependencias con otros esquemas.
 
@@ -77,7 +79,7 @@ m-may: customAttribute
 m-equality: objectIdentifierMatch
 ```
 
-Y por último creamos el fichero "**cn=custom/ou=attributetypes/m-oid=1.3.6.1.4.1.42.2.27.32.1.1.ldif**" donde definimos el atributo "customAttribute", este attributo no puede ser modificado por el usuario (m-nousermodification: FALE), no permite colecciones (m-collective: FALSE) y es de tipo string (m-syntax: 1.3.6.1.4.1.1466.115.121.1.15).
+Y por último creamos el fichero "**cn=custom/ou=attributetypes/m-oid=1.3.6.1.4.1.42.2.27.32.1.1.ldif**" donde definimos el atributo "customAttribute", este attributo se ha configurado para que: no puede ser modificado por el usuario (m-nousermodification: FALE), no permite colecciones (m-collective: FALSE) y es de tipo string (m-syntax: 1.3.6.1.4.1.1466.115.121.1.15).
 
 ```
 version: 1
@@ -298,7 +300,7 @@ Ahora si volvemos a ejecutar nuestro test de integración estará en verde.
 
 
 ## Referencias
-- https://www.adictosaltrabajo.com/2013/12/26/apache-d-s-embedded-ldap-server/
+- [https://www.adictosaltrabajo.com/2013/12/26/apache-d-s-embedded-ldap-server/](https://www.adictosaltrabajo.com/2013/12/26/apache-d-s-embedded-ldap-server/)
 - [https://github.com/angelusGJ/tutoriales-apacheds](https://github.com/angelusGJ/tutoriales-apacheds)
 
 ## Conclusiones
